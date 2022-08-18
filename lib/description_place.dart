@@ -1,72 +1,69 @@
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class DescriptionPlace extends StatelessWidget {
-// Variables
-  final String title;
-  final String description;
-  final int score;
+  String namePlace;
+  int stars;
+  String descriptionPlace;
 
-  // Constructor del Main Widget
-  DescriptionPlace(this.title, this.description, this.score);
+  DescriptionPlace(this.namePlace, this.stars, this.descriptionPlace,
+      {Key? key})
+      : super(key: key);
 
-  // Star Widget
-  Widget starWidget(bool fulfilled) {
-    return Icon(fulfilled ? Icons.star : Icons.star_border,
-        color: fulfilled ? Color(0xFFf0e21f) : Color(0xFFd6d6d6));
-  }
-
-  // Stars Widget Generator
-  List<Widget> generateStars() {
-    // Recursive generation
-    List<Widget> state = [];
-    for (int i = 0; i < 5; i++) {
-      state.add(starWidget(i < score));
-    }
-
-    // Returning generated stars list
-    return state;
-  }
-
-  // Main Widget
   @override
   Widget build(BuildContext context) {
-    // Title Widget
-    final Container titleWidget = Container(
-        width: 210.0,
-        child: Text(title,
+    //ignore: todo
+    // TODO: implement build
+
+    final starHalf = Container(
+      margin: const EdgeInsets.only(top: 323.0, right: 3.0),
+      child: const Icon(
+        Icons.star_half,
+        color: Color(0xFFf2C611),
+      ),
+    );
+
+    final star = Container(
+      margin: const EdgeInsets.only(top: 323.0, right: 3.0),
+      child: const Icon(
+        Icons.star,
+        color: Color(0xFFf2C611),
+      ),
+    );
+
+    final titleStars = Row(
+      children: <Widget>[
+        Container(
+          margin: const EdgeInsets.only(top: 320.0, left: 20.0, right: 20.0),
+          child: Text(
+            namePlace,
+            style: const TextStyle(
+                fontFamily: "Lato",
+                fontSize: 30.0,
+                fontWeight: FontWeight.w900),
             textAlign: TextAlign.left,
-            style: TextStyle(
-                color: Color(0xFF212121),
-                fontSize: 29.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'Montserrat')));
-
-    // Stars Widget
-    final Container starsWidget =
-        Container(child: Row(children: generateStars()));
-
-    final Container descriptionWidget = Container(
-        margin: EdgeInsets.only(top: 20.0),
-        child: Text(description,
-            textAlign: TextAlign.left,
-            style: TextStyle(
-                color: Color(0xFF212121),
-                fontSize: 17.0,
-                fontWeight: FontWeight.normal,
-                fontFamily: 'Nunito Sans')));
-
-    // Widget
-    final Container widget = Container(
-        margin: EdgeInsets.only(top: 320.0, left: 25.0, right: 25.0),
-        child: Column(children: [
-          Row(
-            children: <Widget>[titleWidget, starsWidget],
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
           ),
-          descriptionWidget
-        ]));
+        ),
+        Row(
+          children: <Widget>[star, star, star, star, starHalf],
+        )
+      ],
+    );
 
-    // Return
-    return widget;
+    final description = Container(
+      margin: const EdgeInsets.only(top: 20.0, left: 20.0, right: 20.0),
+      child: Text(
+        descriptionPlace,
+        style: const TextStyle(
+            fontFamily: "Lato",
+            fontSize: 16.0,
+            fontWeight: FontWeight.bold,
+            color: Color(0xFF56575a)),
+      ),
+    );
+
+    return Column(
+      children: <Widget>[titleStars, description],
+    );
   }
 }
