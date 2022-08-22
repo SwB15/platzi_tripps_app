@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'description_place.dart';
 import 'review_list.dart';
+import 'package:flutter/services.dart';
+import 'header_appbar.dart';
 
 void main() => runApp(MyApp());
 
@@ -8,11 +10,13 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   String descriptionDummy =
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+      "Paraguay, oficialmente República del Paraguay (en guaraní, Tavakuairetã Paraguái), es un país situado en la zona central de América del Sur. \n Cuenta con una superficie de 406 752 km². Limita con Argentina, Bolivia y Brasil. Su territorio está caracterizado por dos regiones diferentes separadas por el río Paraguay, la Oriental, que es la más poblada, y la Occidental, que forma parte del Chaco Boreal.";
 
   MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+        const SystemUiOverlayStyle(statusBarColor: Colors.transparent));
     return MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
@@ -28,15 +32,15 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
         ),
         home: Scaffold(
-          //body: new DescriptionPlace("Bahamas", 4, descriptionDummy),
           body: Stack(
             children: <Widget>[
               ListView(
                 children: <Widget>[
-                  DescriptionPlace("Bahamas", 4, descriptionDummy),
+                  DescriptionPlace("Paraguay", 4, descriptionDummy),
                   const ReviewList()
                 ],
               ),
+              const HeaderAppbar(),
             ],
           ),
         ) //MyHomePage(title: 'Flutter Demo Home Page'),

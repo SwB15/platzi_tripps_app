@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable
 class Review extends StatelessWidget {
-  String pathImage = "buid/assets/img/fondo.jpg";
+  String pathImage = "buid/assets/img/Persona1.png";
   String name = "Varuna Yasas";
   String details = "1 review · 5 photos";
   String comment = "There is an amazing place in Sri Lanka";
