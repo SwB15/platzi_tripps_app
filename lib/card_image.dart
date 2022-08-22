@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'floating_action_button.dart';
 
 // ignore: must_be_immutable
 class CardImage extends StatelessWidget {
@@ -10,7 +11,7 @@ class CardImage extends StatelessWidget {
   Widget build(BuildContext context) {
     // ignore: todo
     // TODO: implement build
-    return Container(
+    final card = Container(
       height: 350.0,
       width: 250.0,
       margin: const EdgeInsets.only(top: 80.0, left: 20.0),
@@ -25,6 +26,14 @@ class CardImage extends StatelessWidget {
                 blurRadius: 15.0,
                 offset: Offset(0.0, 7.0)),
           ]),
+    );
+
+    return Stack(
+      alignment: const Alignment(0.9, 1.1),
+      children: [
+        card,
+        const FloatingActionButtonGreen(),
+      ],
     );
   }
 }

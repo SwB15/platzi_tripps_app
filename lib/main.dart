@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
-import 'description_place.dart';
-import 'review_list.dart';
+import 'package:platzi_trips_app/platzi_trips.dart';
 import 'package:flutter/services.dart';
-import 'header_appbar.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 // ignore: must_be_immutable
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
-  String descriptionDummy =
-      "Paraguay, oficialmente República del Paraguay (en guaraní, Tavakuairetã Paraguái), es un país situado en la zona central de América del Sur. \n Cuenta con una superficie de 406 752 km². Limita con Argentina, Bolivia y Brasil. Su territorio está caracterizado por dos regiones diferentes separadas por el río Paraguay, la Oriental, que es la más poblada, y la Occidental, que forma parte del Chaco Boreal.";
 
-  MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(
@@ -31,20 +27,7 @@ class MyApp extends StatelessWidget {
           // is not restarted.
           primarySwatch: Colors.blue,
         ),
-        home: Scaffold(
-          body: Stack(
-            children: <Widget>[
-              ListView(
-                children: <Widget>[
-                  DescriptionPlace("Paraguay", 4, descriptionDummy),
-                  const ReviewList()
-                ],
-              ),
-              const HeaderAppbar(),
-            ],
-          ),
-        ) //MyHomePage(title: 'Flutter Demo Home Page'),
-        );
+        home: const PlatziTrips());
   }
 }
 

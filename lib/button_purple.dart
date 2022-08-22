@@ -25,6 +25,7 @@ class ButtonPurple extends StatelessWidget {
       child: InkWell(
         onTap: () {
           Scaffold.of(context)
+              // ignore: deprecated_member_use
               .showSnackBar(const SnackBar(content: Text("Navegando")));
         },
         child: Center(
